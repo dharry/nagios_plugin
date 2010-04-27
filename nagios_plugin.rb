@@ -133,7 +133,7 @@ class NagiosPlugin < NagiosBase
     st = IO.popen("snmpwalk -Os -v #{snmpver} -c #{community} #{host} #{mib} 2> /dev/null", "r").map
 
     if st.zero?
-      return (check(nil) + Nagios::ErrMsg[0])
+      return (check(nil) + [Nagios::ErrMsg[0]])
     end
 
     h = {}
@@ -189,7 +189,7 @@ class NagiosPlugin < NagiosBase
     st = IO.popen("snmpwalk -Os -v #{snmpver} -c #{community} #{host} #{mib} 2> /dev/null", "r").map
 
     if st.zero?
-      return (check(nil) + Nagios::ErrMsg[0])
+      return (check(nil) + [Nagios::ErrMsg[0]])
     end
 
     h = {}
@@ -236,7 +236,7 @@ class NagiosPlugin < NagiosBase
     st = IO.popen("snmpwalk -Os -v #{snmpver} -c #{community} #{host} #{mib} 2> /dev/null", "r").map
 
     if st.zero?
-      return (check(nil) + Nagios::ErrMsg[0])
+      return (check(nil) + [Nagios::ErrMsg[0]])
     end
 
     h = {}
@@ -307,7 +307,7 @@ class NagiosPlugin < NagiosBase
     st = IO.popen("snmpwalk -Os -v #{snmpver} -c #{community} #{host} #{mib} 2> /dev/null", "r").map
 
     if st.zero?
-      return (check(nil) + Nagios::ErrMsg[0])
+      return (check(nil) + [Nagios::ErrMsg[0]])
     end
 
     h = {}
@@ -377,7 +377,7 @@ class NagiosPlugin < NagiosBase
     st = IO.popen("snmpwalk -Os -v #{snmpver} -c #{community} #{host} #{mib} 2> /dev/null", "r").map
 
     if st.zero?
-      return (check(nil) + Nagios::ErrMsg[0])
+      return (check(nil) + [Nagios::ErrMsg[0]])
     end
 
     h = st.inject({}) {|r,v|
@@ -392,4 +392,6 @@ class NagiosPlugin < NagiosBase
     return check(val) + [msg]
   end
 end
+
+
 
